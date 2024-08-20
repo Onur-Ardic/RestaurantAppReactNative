@@ -1,11 +1,17 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
 
-const SearchBar = () => {
+const SearchBar = ({ termValue, onThermChange, onThermSubmit }) => {
   return (
     <View style={styles.searchWrapper}>
       <FontAwesome5 style={styles.searchIcon} name="search" size={24} color="black" />
-      <TextInput style={styles.searchInput} placeholder="Search..." />
+      <TextInput
+        style={styles.searchInput}
+        placeholder="Search..."
+        onChangeText={onThermChange}
+        onEndEditing={onThermSubmit}
+        value={termValue}
+      />
     </View>
   )
 }
